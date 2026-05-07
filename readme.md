@@ -26,7 +26,7 @@ Google Search Console (GSC) is powerful, but manually entering regex filters for
 
 ## 🖱️ Installation
 
-1.  Open the [GSC SEO Regex Bookmarklets Tool](Qwen_html_20260507_8js6l13nd.html) in your browser.
+1.  Open the [GSC SEO Regex Bookmarklets Tool](seo-bookmarklets.html) in your browser.
 2.  Ensure your **Bookmarks Bar** is visible (`Ctrl+Shift+B` or `Cmd+Shift+B`).
 3.  **Drag** any purple bookmarklet button directly onto your bookmarks bar.
 4.  Navigate to your **Google Search Console Performance Report**.
