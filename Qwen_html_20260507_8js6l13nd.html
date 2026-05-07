@@ -469,7 +469,7 @@
       <!-- 🎯 DRAGGABLE BOOKMARKLET LINK -->
       <a class="drag-bookmark" 
          draggable="true"
-         href="javascript:(function(){var r='\\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         href="javascript:(function(){var r='\\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
          ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
         <span class="drag-icon">🖱️</span> Drag to Install
@@ -479,7 +479,7 @@
         <button class="btn btn-outline" onclick="toggleCode('bm1')">📋 Show/Hide Code</button>
         <button class="btn btn-outline" onclick="copyCode('bm1')">📄 Copy Code</button>
       </div>
-      <div class="code-block" id="bm1">javascript:(function(){var r='\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+      <div class="code-block" id="bm1">javascript:(function(){var r='\\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
     </div>
 
     <!-- 2. Comparison Filter -->
@@ -493,7 +493,7 @@
       
       <a class="drag-bookmark" 
          draggable="true"
-         href="javascript:(function(){var r='\\b(vs|versus|alternative|or|better|difference|compared)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         href="javascript:(function(){var r='\\b(vs|versus|alternative|or|better|difference|compared)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
          ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
         <span class="drag-icon">🖱️</span> Drag to Install
@@ -503,7 +503,7 @@
         <button class="btn btn-outline" onclick="toggleCode('bm2')">📋 Show/Hide Code</button>
         <button class="btn btn-outline" onclick="copyCode('bm2')">📄 Copy Code</button>
       </div>
-      <div class="code-block" id="bm2">javascript:(function(){var r='\b(vs|versus|alternative|or|better|difference|compared)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+      <div class="code-block" id="bm2">javascript:(function(){var r='\\b(vs|versus|alternative|or|better|difference|compared)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
     </div>
 
     <!-- 3. Troubleshooting -->
@@ -517,7 +517,7 @@
       
       <a class="drag-bookmark" 
          draggable="true"
-         href="javascript:(function(){var r='\\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         href="javascript:(function(){var r='\\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
          ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
         <span class="drag-icon">🖱️</span> Drag to Install
@@ -527,7 +527,7 @@
         <button class="btn btn-outline" onclick="toggleCode('bm3')">📋 Show/Hide Code</button>
         <button class="btn btn-outline" onclick="copyCode('bm3')">📄 Copy Code</button>
       </div>
-      <div class="code-block" id="bm3">javascript:(function(){var r='\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+      <div class="code-block" id="bm3">javascript:(function(){var r='\\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
     </div>
 
     <!-- 4. Questions -->
@@ -541,7 +541,7 @@
       
       <a class="drag-bookmark" 
          draggable="true"
-         href="javascript:(function(){var r='^(who|what|where|why|how|can|is)';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         href="javascript:(function(){var r='^(who|what|where|why|how|can|is)';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
          ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
         <span class="drag-icon">🖱️</span> Drag to Install
@@ -551,7 +551,7 @@
         <button class="btn btn-outline" onclick="toggleCode('bm4')">📋 Show/Hide Code</button>
         <button class="btn btn-outline" onclick="copyCode('bm4')">📄 Copy Code</button>
       </div>
-      <div class="code-block" id="bm4">javascript:(function(){var r='^(who|what|where|why|how|can|is)';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+      <div class="code-block" id="bm4">javascript:(function(){var r='^(who|what|where|why|how|can|is)';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
     </div>
 
     <!-- 5. Long-Tail -->
@@ -565,7 +565,7 @@
       
       <a class="drag-bookmark" 
          draggable="true"
-         href="javascript:(function(){var r='^(\\S+\\s+){5,}\\S+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         href="javascript:(function(){var r='^(\\S+\\s+){5,}\\S+$';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
          ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
         <span class="drag-icon">🖱️</span> Drag to Install
@@ -575,7 +575,7 @@
         <button class="btn btn-outline" onclick="toggleCode('bm5')">📋 Show/Hide Code</button>
         <button class="btn btn-outline" onclick="copyCode('bm5')">📄 Copy Code</button>
       </div>
-      <div class="code-block" id="bm5">javascript:(function(){var r='^(\S+\s+){5,}\S+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+      <div class="code-block" id="bm5">javascript:(function(){var r='^(\\S+\\s+){5,}\\S+$';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
     </div>
 
   </div>
@@ -597,7 +597,7 @@
       
       <a class="drag-bookmark" 
          draggable="true"
-         href="javascript:(function(){var r='\\b(yourbrand|your-brand|your_brand)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         href="javascript:(function(){var r='\\b(yourbrand|your-brand|your_brand)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
          ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
         <span class="drag-icon">🖱️</span> Drag to Install
@@ -607,7 +607,7 @@
         <button class="btn btn-outline" onclick="toggleCode('bm6')">📋 Show/Hide Code</button>
         <button class="btn btn-outline" onclick="copyCode('bm6')">📄 Copy Code</button>
       </div>
-      <div class="code-block" id="bm6">javascript:(function(){var r='\b(yourbrand|your-brand|your_brand)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+      <div class="code-block" id="bm6">javascript:(function(){var r='\\b(yourbrand|your-brand|your_brand)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
     </div>
 
     <!-- 7. Non-Branded -->
@@ -622,7 +622,7 @@
       
       <a class="drag-bookmark" 
          draggable="true"
-         href="javascript:(function(){var r='^(?!.*(yourbrand|your-brand)).+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','!~'+e);window.location.href=u.toString();})();"
+         href="javascript:(function(){var r='^(?!.*(yourbrand|your-brand)).+$';var u=new URL(window.location.href);u.searchParams.set('query','!~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
          ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
         <span class="drag-icon">🖱️</span> Drag to Install
@@ -632,7 +632,7 @@
         <button class="btn btn-outline" onclick="toggleCode('bm7')">📋 Show/Hide Code</button>
         <button class="btn btn-outline" onclick="copyCode('bm7')">📄 Copy Code</button>
       </div>
-      <div class="code-block" id="bm7">javascript:(function(){var r='^(?!.*(yourbrand|your-brand)).+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','!~'+e);window.location.href=u.toString();})();</div>
+      <div class="code-block" id="bm7">javascript:(function(){var r='^(?!.*(yourbrand|your-brand)).+$';var u=new URL(window.location.href);u.searchParams.set('query','!~'+r);window.location.href=u.toString();})();</div>
     </div>
 
     <!-- 8. Local Intent -->
@@ -646,7 +646,7 @@
       
       <a class="drag-bookmark" 
          draggable="true"
-         href="javascript:(function(){var r='\\b(near me|nearby|in [a-z]+|local|[a-z]+\\s+(australia|uk|usa|canada))\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         href="javascript:(function(){var r='\\b(near me|nearby|in [a-z]+|local|[a-z]+\\s+(australia|uk|usa|canada))\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
          ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
         <span class="drag-icon">🖱️</span> Drag to Install
@@ -656,7 +656,7 @@
         <button class="btn btn-outline" onclick="toggleCode('bm8')">📋 Show/Hide Code</button>
         <button class="btn btn-outline" onclick="copyCode('bm8')">📄 Copy Code</button>
       </div>
-      <div class="code-block" id="bm8">javascript:(function(){var r='\b(near me|nearby|in [a-z]+|local|[a-z]+\s+(australia|uk|usa|canada))\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+      <div class="code-block" id="bm8">javascript:(function(){var r='\\b(near me|nearby|in [a-z]+|local|[a-z]+\\s+(australia|uk|usa|canada))\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
     </div>
 
     <!-- 9. Transactional -->
@@ -670,7 +670,7 @@
       
       <a class="drag-bookmark" 
          draggable="true"
-         href="javascript:(function(){var r='\\b(buy now|order|purchase|checkout|add to cart|sign up|subscribe|get started|free trial)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         href="javascript:(function(){var r='\\b(buy now|order|purchase|checkout|add to cart|sign up|subscribe|get started|free trial)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
          ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
         <span class="drag-icon">🖱️</span> Drag to Install
@@ -680,7 +680,7 @@
         <button class="btn btn-outline" onclick="toggleCode('bm9')">📋 Show/Hide Code</button>
         <button class="btn btn-outline" onclick="copyCode('bm9')">📄 Copy Code</button>
       </div>
-      <div class="code-block" id="bm9">javascript:(function(){var r='\b(buy now|order|purchase|checkout|add to cart|sign up|subscribe|get started|free trial)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+      <div class="code-block" id="bm9">javascript:(function(){var r='\\b(buy now|order|purchase|checkout|add to cart|sign up|subscribe|get started|free trial)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
     </div>
 
     <!-- 10. Informational -->
@@ -694,7 +694,7 @@
       
       <a class="drag-bookmark" 
          draggable="true"
-         href="javascript:(function(){var r='\\b(guide|tutorial|how to|what is|learn|tips|steps|example|ideas|list|vs|vs\\.)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         href="javascript:(function(){var r='\\b(guide|tutorial|how to|what is|learn|tips|steps|example|ideas|list|vs|vs\\.)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
          ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
         <span class="drag-icon">🖱️</span> Drag to Install
@@ -704,7 +704,7 @@
         <button class="btn btn-outline" onclick="toggleCode('bm10')">📋 Show/Hide Code</button>
         <button class="btn btn-outline" onclick="copyCode('bm10')">📄 Copy Code</button>
       </div>
-      <div class="code-block" id="bm10">javascript:(function(){var r='\b(guide|tutorial|how to|what is|learn|tips|steps|example|ideas|list|vs|vs\.)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+      <div class="code-block" id="bm10">javascript:(function(){var r='\\b(guide|tutorial|how to|what is|learn|tips|steps|example|ideas|list|vs|vs\\.)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
     </div>
 
     <!-- 11. Short Queries -->
@@ -718,7 +718,7 @@
       
       <a class="drag-bookmark" 
          draggable="true"
-         href="javascript:(function(){var r='^\\S+(\\s+\\S+){0,1}$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         href="javascript:(function(){var r='^\\S+(\\s+\\S+){0,1}$';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
          ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
         <span class="drag-icon">🖱️</span> Drag to Install
@@ -728,7 +728,7 @@
         <button class="btn btn-outline" onclick="toggleCode('bm11')">📋 Show/Hide Code</button>
         <button class="btn btn-outline" onclick="copyCode('bm11')">📄 Copy Code</button>
       </div>
-      <div class="code-block" id="bm11">javascript:(function(){var r='^\S+(\s+\S+){0,1}$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+      <div class="code-block" id="bm11">javascript:(function(){var r='^\\S+(\\s+\\S+){0,1}$';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
     </div>
 
     <!-- 12. Very Long Queries -->
@@ -742,7 +742,7 @@
       
       <a class="drag-bookmark" 
          draggable="true"
-         href="javascript:(function(){var r='^(\\S+\\s+){10,}\\S+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         href="javascript:(function(){var r='^(\\S+\\s+){10,}\\S+$';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
          ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
         <span class="drag-icon">🖱️</span> Drag to Install
@@ -752,7 +752,7 @@
         <button class="btn btn-outline" onclick="toggleCode('bm12')">📋 Show/Hide Code</button>
         <button class="btn btn-outline" onclick="copyCode('bm12')">📄 Copy Code</button>
       </div>
-      <div class="code-block" id="bm12">javascript:(function(){var r='^(\S+\s+){10,}\S+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+      <div class="code-block" id="bm12">javascript:(function(){var r='^(\\S+\\s+){10,}\\S+$';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
     </div>
 
     <!-- 13. Expanded Questions -->
@@ -766,7 +766,7 @@
       
       <a class="drag-bookmark" 
          draggable="true"
-         href="javascript:(function(){var r='(?i)^(who|what|where|when|why|how|can|could|should|would|is|are|does|do|did|will)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         href="javascript:(function(){var r='(?i)^(who|what|where|when|why|how|can|could|should|would|is|are|does|do|did|will)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
          ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
         <span class="drag-icon">🖱️</span> Drag to Install
@@ -776,7 +776,7 @@
         <button class="btn btn-outline" onclick="toggleCode('bm13')">📋 Show/Hide Code</button>
         <button class="btn btn-outline" onclick="copyCode('bm13')">📄 Copy Code</button>
       </div>
-      <div class="code-block" id="bm13">javascript:(function(){var r='(?i)^(who|what|where|when|why|how|can|could|should|would|is|are|does|do|did|will)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+      <div class="code-block" id="bm13">javascript:(function(){var r='(?i)^(who|what|where|when|why|how|can|could|should|would|is|are|does|do|did|will)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
     </div>
 
     <!-- 14. Competitor Comparison -->
@@ -791,7 +791,7 @@
       
       <a class="drag-bookmark" 
          draggable="true"
-         href="javascript:(function(){var r='\\b(vs|versus|vs\\.|compared to|alternative to|instead of)\\s+(competitor1|competitor2)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         href="javascript:(function(){var r='\\b(vs|versus|vs\\.|compared to|alternative to|instead of)\\s+(competitor1|competitor2)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
          ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
         <span class="drag-icon">🖱️</span> Drag to Install
@@ -801,7 +801,7 @@
         <button class="btn btn-outline" onclick="toggleCode('bm14')">📋 Show/Hide Code</button>
         <button class="btn btn-outline" onclick="copyCode('bm14')">📄 Copy Code</button>
       </div>
-      <div class="code-block" id="bm14">javascript:(function(){var r='\b(vs|versus|vs\.|compared to|alternative to|instead of)\s+(competitor1|competitor2)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+      <div class="code-block" id="bm14">javascript:(function(){var r='\\b(vs|versus|vs\\.|compared to|alternative to|instead of)\\s+(competitor1|competitor2)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
     </div>
 
     <!-- 15. Price-Sensitive -->
@@ -815,7 +815,7 @@
       
       <a class="drag-bookmark" 
          draggable="true"
-         href="javascript:(function(){var r='\\b(cheap|affordable|budget|low cost|discount|deal|coupon|promo|free|pricing|cost of)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         href="javascript:(function(){var r='\\b(cheap|affordable|budget|low cost|discount|deal|coupon|promo|free|pricing|cost of)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
          ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
         <span class="drag-icon">🖱️</span> Drag to Install
@@ -825,7 +825,7 @@
         <button class="btn btn-outline" onclick="toggleCode('bm15')">📋 Show/Hide Code</button>
         <button class="btn btn-outline" onclick="copyCode('bm15')">📄 Copy Code</button>
       </div>
-      <div class="code-block" id="bm15">javascript:(function(){var r='\b(cheap|affordable|budget|low cost|discount|deal|coupon|promo|free|pricing|cost of)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+      <div class="code-block" id="bm15">javascript:(function(){var r='\\b(cheap|affordable|budget|low cost|discount|deal|coupon|promo|free|pricing|cost of)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
     </div>
 
   </div>
@@ -843,7 +843,7 @@
     
     <a class="drag-bookmark" 
        draggable="true"
-       href="javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var e=encodeURIComponent(p);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();}})();"
+       href="javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var u=new URL(window.location.href);u.searchParams.set('query','~'+p);window.location.href=u.toString();}})();"
        onclick="event.preventDefault(); showDragHint(); return false;"
        ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
       <span class="drag-icon">🖱️</span> Drag to Install
@@ -853,7 +853,7 @@
       <button class="btn btn-outline" onclick="toggleCode('bmMaster')">📋 Show/Hide Code</button>
       <button class="btn btn-outline" onclick="copyCode('bmMaster')">📄 Copy Code</button>
     </div>
-    <div class="code-block" id="bmMaster">javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var e=encodeURIComponent(p);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();}})();</div>
+    <div class="code-block" id="bmMaster">javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var u=new URL(window.location.href);u.searchParams.set('query','~'+p);window.location.href=u.toString();}})();</div>
   </div>
 </div>
 
@@ -1070,41 +1070,41 @@ a{color:#1a0dab}
 <div class="bookmarklet">
 <strong>1️⃣ Commercial Intent</strong> <span class="badge">High Value</span>
 <p>Finds: buy, price, deal, review, best, vs, comparison</p>
-<a class="drag-link" href="javascript:(function(){var r='\\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<a class="drag-link" href="javascript:(function(){var r='\\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
 <button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
-<div class="code">javascript:(function(){var r='\\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+<div class="code">javascript:(function(){var r='\\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
 </div>
 
 <div class="bookmarklet">
 <strong>2️⃣ Comparison & Alternatives</strong> <span class="badge">Research</span>
 <p>Finds: vs, versus, alternative, better, difference</p>
-<a class="drag-link" href="javascript:(function(){var r='\\b(vs|versus|alternative|or|better|difference|compared)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<a class="drag-link" href="javascript:(function(){var r='\\b(vs|versus|alternative|or|better|difference|compared)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
 <button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
-<div class="code">javascript:(function(){var r='\\b(vs|versus|alternative|or|better|difference|compared)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+<div class="code">javascript:(function(){var r='\\b(vs|versus|alternative|or|better|difference|compared)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
 </div>
 
 <div class="bookmarklet">
 <strong>3️⃣ Troubleshooting</strong> <span class="badge">Support</span>
 <p>Finds: problem, error, not working, fix, help</p>
-<a class="drag-link" href="javascript:(function(){var r='\\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<a class="drag-link" href="javascript:(function(){var r='\\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
 <button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
-<div class="code">javascript:(function(){var r='\\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+<div class="code">javascript:(function(){var r='\\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
 </div>
 
 <div class="bookmarklet">
 <strong>4️⃣ Questions</strong> <span class="badge">Informational</span>
 <p>Finds queries starting with: who, what, where, why, how, can, is</p>
-<a class="drag-link" href="javascript:(function(){var r='^(who|what|where|why|how|can|is)';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<a class="drag-link" href="javascript:(function(){var r='^(who|what|where|why|how|can|is)';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
 <button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
-<div class="code">javascript:(function(){var r='^(who|what|where|why|how|can|is)';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+<div class="code">javascript:(function(){var r='^(who|what|where|why|how|can|is)';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
 </div>
 
 <div class="bookmarklet">
 <strong>5️⃣ Long-Tail (5+ Words)</strong> <span class="badge">Low Competition</span>
 <p>Finds detailed queries with 5 or more words</p>
-<a class="drag-link" href="javascript:(function(){var r='^(\\S+\\s+){5,}\\S+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<a class="drag-link" href="javascript:(function(){var r='^(\\S+\\s+){5,}\\S+$';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
 <button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
-<div class="code">javascript:(function(){var r='^(\\S+\\s+){5,}\\S+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+<div class="code">javascript:(function(){var r='^(\\S+\\s+){5,}\\S+$';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
 </div>
 
 <h2>🚀 Advanced Patterns</h2>
@@ -1112,17 +1112,17 @@ a{color:#1a0dab}
 <div class="bookmarklet">
 <strong>6️⃣ Branded Queries</strong> <span class="badge">Brand</span>
 <p class="warning">⚠️ EDIT FIRST: Replace "yourbrand|your-brand" with your actual brand terms</p>
-<a class="drag-link" href="javascript:(function(){var r='\\b(yourbrand|your-brand|your_brand)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<a class="drag-link" href="javascript:(function(){var r='\\b(yourbrand|your-brand|your_brand)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
 <button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
-<div class="code">javascript:(function(){var r='\\b(yourbrand|your-brand|your_brand)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+<div class="code">javascript:(function(){var r='\\b(yourbrand|your-brand|your_brand)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
 </div>
 
 <div class="bookmarklet">
 <strong>✨ Master Prompt</strong> <span class="badge">Advanced</span>
 <p>Prompts for any regex pattern on click</p>
-<a class="drag-link" href="javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var e=encodeURIComponent(p);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();}})();" draggable="true">🖱️ Drag to Install</a>
+<a class="drag-link" href="javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var u=new URL(window.location.href);u.searchParams.set('query','~'+p);window.location.href=u.toString();}})();" draggable="true">🖱️ Drag to Install</a>
 <button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
-<div class="code">javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var e=encodeURIComponent(p);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();}})();</div>
+<div class="code">javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var u=new URL(window.location.href);u.searchParams.set('query','~'+p);window.location.href=u.toString();}})();</div>
 </div>
 
 <h2>📚 Quick Reference</h2>
