@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🔍 GSC SEO Regex Bookmarklets</title>
+  <style>
+    :root {
+      --primary: #4285f4;
+      --primary-dark: #3367d6;
+      --success: #34a853;
+      --warning: #fbbc05;
+      --danger: #ea4335;
+      --dark: #202124;
+      --light: #f8f9fa;
+      --border: #dadce0;
+      --card-shadow: 0 1px 2px rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+      --drag-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Google Sans', Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background: #fff;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: var(--card-shadow);
+    }
+    header h1 { font-size: 2rem; margin-bottom: 10px; }
+    header p { opacity: 0.95; font-size: 1.1rem; }
+    .badge {
+      display: inline-block;
+      background: var(--success);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin: 5px 0;
+    }
+    .intro {
+      background: var(--light);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      border-left: 4px solid var(--primary);
+    }
+    
+    /* 🎯 DRAG-TO-INSTALL HERO SECTION */
+    .drag-hero {
+      background: var(--drag-gradient);
+      color: white;
+      padding: 25px;
+      border-radius: 12px;
+      margin: 25px 0;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .drag-hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+    .drag-hero h2 { 
+      font-size: 1.4rem; 
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+    .drag-instructions {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .drag-step {
+      background: rgba(255,255,255,0.15);
+      padding: 12px 20px;
+      border-radius: 8px;
+      min-width: 200px;
+      backdrop-filter: blur(5px);
+    }
+    .drag-step strong { display: block; margin-bottom: 5px; }
+    .drag-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+    }
+    .drag-source {
+      background: white;
+      color: var(--dark);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: grab;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+      user-select: none;
+    }
+    .drag-source:active { cursor: grabbing; transform: scale(0.98); }
+    .drag-source:hover { 
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      transform: translateY(-2px);
+    }
+    .drag-arrow {
+      font-size: 1.5rem;
+      animation: bounce 1.5s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(10px); }
+    }
+    .drag-target {
+      background: rgba(255,255,255,0.2);
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 2px dashed rgba(255,255,255,0.5);
+      font-weight: 500;
+    }
+    .browser-note {
+      background: rgba(255,255,255,0.15);
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 1;
+    }
+    .browser-note code {
+      background: rgba(0,0,0,0.2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    
+    .section { margin: 35px 0; }
+    .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+      color: var(--primary-dark);
+    }
+    .bookmarklet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .card-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--dark);
+    }
+    .card-desc {
+      font-size: 0.95rem;
+      color: #5f6368;
+      margin-bottom: 15px;
+      min-height: 40px;
+    }
+    .regex-preview {
+      background: #f1f3f4;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      margin: 10px 0;
+      overflow-x: auto;
+      white-space: nowrap;
+      border-left: 3px solid var(--warning);
+    }
+    
+    /* 🎯 DRAGGABLE BOOKMARKLET LINK STYLES */
+    .drag-bookmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--drag-gradient);
+      color: white !important;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none !important;
+      font-weight: 500;
+      cursor: grab;
+      margin-right: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      transition: all 0.2s;
+      user-select: none;
+      border: none;
+      font-size: 0.95rem;
+    }
+    .drag-bookmark:active { cursor: grabbing; }
+    .drag-bookmark:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+      filter: brightness(1.05);
+    }
+    .drag-bookmark:visited { color: white !important; }
+    .drag-icon { font-size: 1.1rem; }
+    
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .btn {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--dark);
+    }
+    .btn-outline:hover {
+      background: var(--light);
+      border-color: var(--primary);
+    }
+    .code-block {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      overflow-x: auto;
+      margin: 12px 0;
+      white-space: pre-wrap;
+      word-break: break-all;
+      display: none; /* Hidden by default, toggle with button */
+    }
+    .code-block.show { display: block; }
+    
+    .copy-feedback {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--success);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s;
+      z-index: 1000;
+    }
+    .copy-feedback.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .instructions {
+      background: #e8f0fe;
+      border-left: 4px solid var(--primary);
+      padding: 15px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+    }
+    .instructions ol { padding-left: 20px; margin: 10px 0; }
+    .instructions li { margin: 8px 0; }
+    .note {
+      background: #fef7e0;
+      border-left: 4px solid var(--warning);
+      padding: 12px 16px;
+      border-radius: 0 6px 6px 0;
+      margin: 15px 0;
+      font-size: 0.95rem;
+    }
+    .warning { background: #fce8e6; border-left-color: var(--danger); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th { background: var(--light); font-weight: 600; }
+    tr:hover { background: #f8f9fa; }
+    
+    .download-section {
+      text-align: center;
+      padding: 25px;
+      background: linear-gradient(135deg, #f8f9fa, #e8f0fe);
+      border-radius: 12px;
+      margin: 30px 0;
+      border: 2px dashed var(--primary);
+    }
+    .download-btn {
+      background: var(--success);
+      color: white;
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      filter: brightness(0.98);
+    }
+    
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+      border-top: 1px solid var(--border);
+      color: #5f6368;
+      font-size: 0.9rem;
+    }
+    
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+      .bookmarklet-grid { grid-template-columns: 1fr; }
+      header h1 { font-size: 1.6rem; }
+      .btn-group { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+      .drag-instructions { flex-direction: column; align-items: center; }
+      .drag-visual { flex-direction: column; gap: 10px; }
+      .drag-source, .drag-target { width: 100%; max-width: 300px; justify-content: center; }
+    }
+    
+    /* Print styles */
+    @media print {
+      .drag-hero, .btn-group, .download-section { display: none; }
+      .code-block { display: block !important; }
+      body { font-size: 11pt; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🔍 GSC SEO Regex Bookmarklets</h1>
+  <p>One-click filters for Google Search Console performance reports</p>
+  <span class="badge">✅ 15+ Patterns</span>
+  <span class="badge">🎯 Search Intent</span>
+  <span class="badge">🖱️ Drag to Install</span>
+</header>
+
+<!-- 🎯 DRAG-TO-INSTALL HERO -->
+<div class="drag-hero">
+  <h2>🖱️ Drag & Drop Installation</h2>
+  <p style="position:relative;z-index:1;opacity:0.95;margin-bottom:20px;">
+    Make your bookmarks bar visible, then drag any bookmarklet below directly to it!
+  </p>
+  
+  <div class="drag-instructions">
+    <div class="drag-step">
+      <strong>1️⃣ Show Bookmarks Bar</strong>
+      <code>Ctrl+Shift+B</code> (Win) or <code>Cmd+Shift+B</code> (Mac)
+    </div>
+    <div class="drag-step">
+      <strong>2️⃣ Drag a Bookmarklet</strong>
+      Click & hold the purple button below ↓
+    </div>
+    <div class="drag-step">
+      <strong>3️⃣ Drop to Bookmarks Bar</strong>
+      Release when you see "Add bookmark" highlight
+    </div>
+  </div>
+  
+  <div class="drag-visual">
+    <div class="drag-source">
+      <span class="drag-icon">🔗</span> Drag Me!
+    </div>
+    <div class="drag-arrow">➡️</div>
+    <div class="drag-target">📁 Bookmarks Bar</div>
+  </div>
+  
+  <div class="browser-note">
+    💡 <strong>Browser Tips:</strong> 
+    Chrome/Edge: Works perfectly • 
+    Firefox: May show security warning (click "Allow") • 
+    Safari: Enable "Show Bookmarks Bar" in View menu • 
+    Mobile: Use "Copy Code" fallback below
+  </div>
+</div>
+
+<div class="intro">
+  <strong>What are these?</strong> Bookmarklets are tiny JavaScript tools saved as browser bookmarks. 
+  When viewing a Google Search Console Performance report, click (or drag-install) any bookmarklet to instantly 
+  filter queries by regex pattern—zero manual copying required.
+</div>
+
+<div class="section">
+  <h2>🎯 Core Intent Filters</h2>
+  <div class="bookmarklet-grid">
+
+    <!-- 1. Commercial Intent -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">1️⃣ Commercial Intent</span>
+        <span class="badge" style="background:#4285f4">High Value</span>
+      </div>
+      <p class="card-desc">Finds queries with buying signals: price, deal, review, best, etc.</p>
+      <div class="regex-preview">\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\b</div>
+      
+      <!-- 🎯 DRAGGABLE BOOKMARKLET LINK -->
+      <a class="drag-bookmark" 
+         draggable="true"
+         href="javascript:(function(){var r='\\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         onclick="event.preventDefault(); showDragHint(); return false;"
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+        <span class="drag-icon">🖱️</span> Drag to Install
+      </a>
+      
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="toggleCode('bm1')">📋 Show/Hide Code</button>
+        <button class="btn btn-outline" onclick="copyCode('bm1')">📄 Copy Code</button>
+      </div>
+      <div class="code-block" id="bm1">javascript:(function(){var r='\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+    </div>
+
+    <!-- 2. Comparison Filter -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">2️⃣ Comparison & Alternatives</span>
+        <span class="badge" style="background:#9c27b0">Research</span>
+      </div>
+      <p class="card-desc">Catches "vs", "alternative", "better than" comparison queries.</p>
+      <div class="regex-preview">\b(vs|versus|alternative|or|better|difference|compared)\b</div>
+      
+      <a class="drag-bookmark" 
+         draggable="true"
+         href="javascript:(function(){var r='\\b(vs|versus|alternative|or|better|difference|compared)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         onclick="event.preventDefault(); showDragHint(); return false;"
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+        <span class="drag-icon">🖱️</span> Drag to Install
+      </a>
+      
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="toggleCode('bm2')">📋 Show/Hide Code</button>
+        <button class="btn btn-outline" onclick="copyCode('bm2')">📄 Copy Code</button>
+      </div>
+      <div class="code-block" id="bm2">javascript:(function(){var r='\b(vs|versus|alternative|or|better|difference|compared)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+    </div>
+
+    <!-- 3. Troubleshooting -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">3️⃣ Troubleshooting & Pain Points</span>
+        <span class="badge" style="background:#f57c00">Support</span>
+      </div>
+      <p class="card-desc">Finds users with problems: error, not working, help, fix, etc.</p>
+      <div class="regex-preview">\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\b</div>
+      
+      <a class="drag-bookmark" 
+         draggable="true"
+         href="javascript:(function(){var r='\\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         onclick="event.preventDefault(); showDragHint(); return false;"
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+        <span class="drag-icon">🖱️</span> Drag to Install
+      </a>
+      
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="toggleCode('bm3')">📋 Show/Hide Code</button>
+        <button class="btn btn-outline" onclick="copyCode('bm3')">📄 Copy Code</button>
+      </div>
+      <div class="code-block" id="bm3">javascript:(function(){var r='\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+    </div>
+
+    <!-- 4. Questions -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">4️⃣ Question Queries</span>
+        <span class="badge" style="background:#00acc1">Informational</span>
+      </div>
+      <p class="card-desc">Matches queries starting with who, what, where, why, how, can, is.</p>
+      <div class="regex-preview">^(who|what|where|why|how|can|is)</div>
+      
+      <a class="drag-bookmark" 
+         draggable="true"
+         href="javascript:(function(){var r='^(who|what|where|why|how|can|is)';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         onclick="event.preventDefault(); showDragHint(); return false;"
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+        <span class="drag-icon">🖱️</span> Drag to Install
+      </a>
+      
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="toggleCode('bm4')">📋 Show/Hide Code</button>
+        <button class="btn btn-outline" onclick="copyCode('bm4')">📄 Copy Code</button>
+      </div>
+      <div class="code-block" id="bm4">javascript:(function(){var r='^(who|what|where|why|how|can|is)';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+    </div>
+
+    <!-- 5. Long-Tail -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">5️⃣ Long-Tail (5+ Words)</span>
+        <span class="badge" style="background:#66bb6a">Low Competition</span>
+      </div>
+      <p class="card-desc">Finds detailed, specific queries with 5 or more words.</p>
+      <div class="regex-preview">^(\S+\s+){5,}\S+$</div>
+      
+      <a class="drag-bookmark" 
+         draggable="true"
+         href="javascript:(function(){var r='^(\\S+\\s+){5,}\\S+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         onclick="event.preventDefault(); showDragHint(); return false;"
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+        <span class="drag-icon">🖱️</span> Drag to Install
+      </a>
+      
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="toggleCode('bm5')">📋 Show/Hide Code</button>
+        <button class="btn btn-outline" onclick="copyCode('bm5')">📄 Copy Code</button>
+      </div>
+      <div class="code-block" id="bm5">javascript:(function(){var r='^(\S+\s+){5,}\S+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <h2>🚀 Bonus: Advanced SEO Patterns</h2>
+  <div class="bookmarklet-grid">
+
+    <!-- 6. Branded -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">6️⃣ Branded Queries</span>
+        <span class="badge" style="background:#7e57c2">Brand</span>
+      </div>
+      <p class="card-desc">Finds queries containing your brand. <strong>Edit the pattern first!</strong></p>
+      <div class="regex-preview">\b(yourbrand|your-brand|your_brand)\b</div>
+      <div class="note">⚠️ Replace <code>yourbrand|your-brand|your_brand</code> with your actual brand terms before installing.</div>
+      
+      <a class="drag-bookmark" 
+         draggable="true"
+         href="javascript:(function(){var r='\\b(yourbrand|your-brand|your_brand)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         onclick="event.preventDefault(); showDragHint(); return false;"
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+        <span class="drag-icon">🖱️</span> Drag to Install
+      </a>
+      
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="toggleCode('bm6')">📋 Show/Hide Code</button>
+        <button class="btn btn-outline" onclick="copyCode('bm6')">📄 Copy Code</button>
+      </div>
+      <div class="code-block" id="bm6">javascript:(function(){var r='\b(yourbrand|your-brand|your_brand)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+    </div>
+
+    <!-- 7. Non-Branded -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">7️⃣ Non-Branded (Exclude Brand)</span>
+        <span class="badge" style="background:#5c6bc0">Organic</span>
+      </div>
+      <p class="card-desc">Excludes branded queries to see pure organic discovery.</p>
+      <div class="regex-preview">^(?!.*(yourbrand|your-brand)).+$</div>
+      <div class="note">Uses <code>!~</code> (negative match). Edit brand terms first.</div>
+      
+      <a class="drag-bookmark" 
+         draggable="true"
+         href="javascript:(function(){var r='^(?!.*(yourbrand|your-brand)).+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','!~'+e);window.location.href=u.toString();})();"
+         onclick="event.preventDefault(); showDragHint(); return false;"
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+        <span class="drag-icon">🖱️</span> Drag to Install
+      </a>
+      
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="toggleCode('bm7')">📋 Show/Hide Code</button>
+        <button class="btn btn-outline" onclick="copyCode('bm7')">📄 Copy Code</button>
+      </div>
+      <div class="code-block" id="bm7">javascript:(function(){var r='^(?!.*(yourbrand|your-brand)).+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','!~'+e);window.location.href=u.toString();})();</div>
+    </div>
+
+    <!-- 8. Local Intent -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">8️⃣ Local Intent</span>
+        <span class="badge" style="background:#26a69a">Local SEO</span>
+      </div>
+      <p class="card-desc">Finds "near me", city names, and location-based queries.</p>
+      <div class="regex-preview">\b(near me|nearby|in [a-z]+|local|[a-z]+\s+(australia|uk|usa|canada))\b</div>
+      
+      <a class="drag-bookmark" 
+         draggable="true"
+         href="javascript:(function(){var r='\\b(near me|nearby|in [a-z]+|local|[a-z]+\\s+(australia|uk|usa|canada))\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         onclick="event.preventDefault(); showDragHint(); return false;"
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+        <span class="drag-icon">🖱️</span> Drag to Install
+      </a>
+      
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="toggleCode('bm8')">📋 Show/Hide Code</button>
+        <button class="btn btn-outline" onclick="copyCode('bm8')">📄 Copy Code</button>
+      </div>
+      <div class="code-block" id="bm8">javascript:(function(){var r='\b(near me|nearby|in [a-z]+|local|[a-z]+\s+(australia|uk|usa|canada))\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+    </div>
+
+    <!-- 9. Transactional -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">9️⃣ Transactional Intent</span>
+        <span class="badge" style="background:#66bb6a">Conversion</span>
+      </div>
+      <p class="card-desc">High-intent actions: buy now, order, sign up, free trial, etc.</p>
+      <div class="regex-preview">\b(buy now|order|purchase|checkout|add to cart|sign up|subscribe|get started|free trial)\b</div>
+      
+      <a class="drag-bookmark" 
+         draggable="true"
+         href="javascript:(function(){var r='\\b(buy now|order|purchase|checkout|add to cart|sign up|subscribe|get started|free trial)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         onclick="event.preventDefault(); showDragHint(); return false;"
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+        <span class="drag-icon">🖱️</span> Drag to Install
+      </a>
+      
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="toggleCode('bm9')">📋 Show/Hide Code</button>
+        <button class="btn btn-outline" onclick="copyCode('bm9')">📄 Copy Code</button>
+      </div>
+      <div class="code-block" id="bm9">javascript:(function(){var r='\b(buy now|order|purchase|checkout|add to cart|sign up|subscribe|get started|free trial)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+    </div>
+
+    <!-- 10. Informational -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">🔟 Informational Intent</span>
+        <span class="badge" style="background:#00acc1">Content</span>
+      </div>
+      <p class="card-desc">Educational queries: guide, tutorial, how to, tips, examples.</p>
+      <div class="regex-preview">\b(guide|tutorial|how to|what is|learn|tips|steps|example|ideas|list|vs|vs\.)\b</div>
+      
+      <a class="drag-bookmark" 
+         draggable="true"
+         href="javascript:(function(){var r='\\b(guide|tutorial|how to|what is|learn|tips|steps|example|ideas|list|vs|vs\\.)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         onclick="event.preventDefault(); showDragHint(); return false;"
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+        <span class="drag-icon">🖱️</span> Drag to Install
+      </a>
+      
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="toggleCode('bm10')">📋 Show/Hide Code</button>
+        <button class="btn btn-outline" onclick="copyCode('bm10')">📄 Copy Code</button>
+      </div>
+      <div class="code-block" id="bm10">javascript:(function(){var r='\b(guide|tutorial|how to|what is|learn|tips|steps|example|ideas|list|vs|vs\.)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+    </div>
+
+    <!-- 11. Short Queries -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">1️⃣1️⃣ Short Queries (1-2 Words)</span>
+        <span class="badge" style="background:#ff7043">High Volume</span>
+      </div>
+      <p class="card-desc">Finds broad, high-volume head terms.</p>
+      <div class="regex-preview">^\S+(\s+\S+){0,1}$</div>
+      
+      <a class="drag-bookmark" 
+         draggable="true"
+         href="javascript:(function(){var r='^\\S+(\\s+\\S+){0,1}$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         onclick="event.preventDefault(); showDragHint(); return false;"
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+        <span class="drag-icon">🖱️</span> Drag to Install
+      </a>
+      
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="toggleCode('bm11')">📋 Show/Hide Code</button>
+        <button class="btn btn-outline" onclick="copyCode('bm11')">📄 Copy Code</button>
+      </div>
+      <div class="code-block" id="bm11">javascript:(function(){var r='^\S+(\s+\S+){0,1}$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+    </div>
+
+    <!-- 12. Very Long Queries -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">1️⃣2️⃣ Very Long Queries (10+ Words)</span>
+        <span class="badge" style="background:#26a69a">Ultra Long-Tail</span>
+      </div>
+      <p class="card-desc">Finds extremely specific, low-competition queries.</p>
+      <div class="regex-preview">^(\S+\s+){10,}\S+$</div>
+      
+      <a class="drag-bookmark" 
+         draggable="true"
+         href="javascript:(function(){var r='^(\\S+\\s+){10,}\\S+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         onclick="event.preventDefault(); showDragHint(); return false;"
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+        <span class="drag-icon">🖱️</span> Drag to Install
+      </a>
+      
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="toggleCode('bm12')">📋 Show/Hide Code</button>
+        <button class="btn btn-outline" onclick="copyCode('bm12')">📄 Copy Code</button>
+      </div>
+      <div class="code-block" id="bm12">javascript:(function(){var r='^(\S+\s+){10,}\S+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+    </div>
+
+    <!-- 13. Expanded Questions -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">1️⃣3️⃣ Expanded Questions (Case-Insensitive)</span>
+        <span class="badge" style="background:#00acc1">Voice Search</span>
+      </div>
+      <p class="card-desc">Matches more question starters with case-insensitive flag.</p>
+      <div class="regex-preview">(?i)^(who|what|where|when|why|how|can|could|should|would|is|are|does|do|did|will)\b</div>
+      
+      <a class="drag-bookmark" 
+         draggable="true"
+         href="javascript:(function(){var r='(?i)^(who|what|where|when|why|how|can|could|should|would|is|are|does|do|did|will)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         onclick="event.preventDefault(); showDragHint(); return false;"
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+        <span class="drag-icon">🖱️</span> Drag to Install
+      </a>
+      
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="toggleCode('bm13')">📋 Show/Hide Code</button>
+        <button class="btn btn-outline" onclick="copyCode('bm13')">📄 Copy Code</button>
+      </div>
+      <div class="code-block" id="bm13">javascript:(function(){var r='(?i)^(who|what|where|when|why|how|can|could|should|would|is|are|does|do|did|will)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+    </div>
+
+    <!-- 14. Competitor Comparison -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">1️⃣4️⃣ Competitor Comparisons</span>
+        <span class="badge" style="background:#ab47bc">Competitive</span>
+      </div>
+      <p class="card-desc">Finds "vs competitor" queries. <strong>Edit competitor names!</strong></p>
+      <div class="regex-preview">\b(vs|versus|vs\.|compared to|alternative to|instead of)\s+(competitor1|competitor2)\b</div>
+      <div class="note warning">⚠️ Replace <code>competitor1|competitor2</code> with actual competitor brand names.</div>
+      
+      <a class="drag-bookmark" 
+         draggable="true"
+         href="javascript:(function(){var r='\\b(vs|versus|vs\\.|compared to|alternative to|instead of)\\s+(competitor1|competitor2)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         onclick="event.preventDefault(); showDragHint(); return false;"
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+        <span class="drag-icon">🖱️</span> Drag to Install
+      </a>
+      
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="toggleCode('bm14')">📋 Show/Hide Code</button>
+        <button class="btn btn-outline" onclick="copyCode('bm14')">📄 Copy Code</button>
+      </div>
+      <div class="code-block" id="bm14">javascript:(function(){var r='\b(vs|versus|vs\.|compared to|alternative to|instead of)\s+(competitor1|competitor2)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+    </div>
+
+    <!-- 15. Price-Sensitive -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">1️⃣5️⃣ Price-Sensitive Queries</span>
+        <span class="badge" style="background:#ffa726">Budget</span>
+      </div>
+      <p class="card-desc">Finds budget-conscious searches: cheap, affordable, discount, coupon.</p>
+      <div class="regex-preview">\b(cheap|affordable|budget|low cost|discount|deal|coupon|promo|free|pricing|cost of)\b</div>
+      
+      <a class="drag-bookmark" 
+         draggable="true"
+         href="javascript:(function(){var r='\\b(cheap|affordable|budget|low cost|discount|deal|coupon|promo|free|pricing|cost of)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();"
+         onclick="event.preventDefault(); showDragHint(); return false;"
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+        <span class="drag-icon">🖱️</span> Drag to Install
+      </a>
+      
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="toggleCode('bm15')">📋 Show/Hide Code</button>
+        <button class="btn btn-outline" onclick="copyCode('bm15')">📄 Copy Code</button>
+      </div>
+      <div class="code-block" id="bm15">javascript:(function(){var r='\b(cheap|affordable|budget|low cost|discount|deal|coupon|promo|free|pricing|cost of)\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎁 Bonus: Master Regex Prompt</h2>
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">✨ Master Prompt Bookmarklet</span>
+      <span class="badge" style="background:#7e57c2">Advanced</span>
+    </div>
+    <p class="card-desc">One bookmarklet that prompts you for any regex pattern. Perfect for testing new filters on the fly.</p>
+    <div class="regex-preview">Prompts for pattern → Applies to GSC query filter</div>
+    
+    <a class="drag-bookmark" 
+       draggable="true"
+       href="javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var e=encodeURIComponent(p);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();}})();"
+       onclick="event.preventDefault(); showDragHint(); return false;"
+       ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
+      <span class="drag-icon">🖱️</span> Drag to Install
+    </a>
+    
+    <div class="btn-group">
+      <button class="btn btn-outline" onclick="toggleCode('bmMaster')">📋 Show/Hide Code</button>
+      <button class="btn btn-outline" onclick="copyCode('bmMaster')">📄 Copy Code</button>
+    </div>
+    <div class="code-block" id="bmMaster">javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var e=encodeURIComponent(p);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();}})();</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📚 Usage Guide & Reference</h2>
+  
+  <div class="instructions">
+    <strong>🎯 How to Use:</strong>
+    <ol>
+      <li><strong>Drag & Drop Install:</strong> Show bookmarks bar (<code>Ctrl+Shift+B</code>), drag any purple "Drag to Install" button to it</li>
+      <li>Go to <a href="https://search.google.com/search-console/performance" target="_blank">Google Search Console → Performance</a></li>
+      <li>Select your property and date range</li>
+      <li>Click your installed bookmarklet from the bookmarks bar</li>
+      <li>Watch the page reload with your regex filter applied! ✅</li>
+      <li>Export results via the <strong>Export</strong> button for deeper analysis</li>
+    </ol>
+  </div>
+
+  <div class="note">
+    💡 <strong>Pro Tips:</strong>
+    <ul style="padding-left:20px;margin-top:8px;">
+      <li>Combine bookmarklet filters with GSC's built-in filters (country, device, page)</li>
+      <li>Use the <strong>Master Prompt</strong> to quickly test new patterns</li>
+      <li>Export filtered data to CSV for content gap analysis</li>
+      <li>Create a "GSC Tools" folder in your bookmarks bar for organization</li>
+      <li><strong>Mobile users:</strong> Use "Copy Code" → Create bookmark manually → Paste as URL</li>
+    </ul>
+  </div>
+
+  <h3 style="margin:25px 0 15px;">🔧 Regex Syntax Reference (Google RE2)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Pattern</th>
+        <th>Meaning</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>\b</code></td><td>Word boundary</td><td><code>\bbuy\b</code> matches "buy" not "buyer"</td></tr>
+      <tr><td><code>^</code> / <code>$</code></td><td>Start / end of string</td><td><code>^how</code> = starts with "how"</td></tr>
+      <tr><td><code>|</code></td><td>OR operator</td><td><code>buy|purchase</code> = either term</td></tr>
+      <tr><td><code>.*</code></td><td>Any characters (greedy)</td><td><code>.*seo.*</code> = contains "seo"</td></tr>
+      <tr><td><code>(?i)</code></td><td>Case-insensitive flag</td><td><code>(?i)^how</code> matches "How", "HOW"</td></tr>
+      <tr><td><code>{n,}</code></td><td>N or more repetitions</td><td><code>(\w+\s){5,}</code> = 5+ words</td></tr>
+      <tr><td><code>!~</code></td><td>Does NOT match (prefix)</td><td>Use <code>query=!~PATTERN</code> to exclude</td></tr>
+      <tr><td><code>\s</code> / <code>\S</code></td><td>Whitespace / non-whitespace</td><td><code>\S+</code> = one or more non-space chars</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note warning">
+    ⚠️ <strong>Important Limitations:</strong>
+    <ul style="padding-left:20px;margin-top:8px;">
+      <li>Google Search Console uses <strong>RE2 regex syntax</strong> (not full PCRE)</li>
+      <li>Max 4096 characters per filter pattern</li>
+      <li>No backreferences (<code>\1</code>), limited lookahead/lookbehind</li>
+      <li>Always test patterns in GSC UI before saving as bookmarklet</li>
+      <li>Bookmarklets only work on GSC Performance report pages</li>
+      <li><strong>Firefox users:</strong> May see security warning for javascript: URLs - click "Allow"</li>
+    </ul>
+  </div>
+</div>
+
+<div class="download-section">
+  <h2>💾 Save This Page for Offline Use</h2>
+  <p>Right-click this page → "Save As..." → Choose "Webpage, Complete" to save all bookmarklets locally.</p>
+  <p>Or use the button below to download a clean HTML version:</p>
+  <button class="download-btn" onclick="downloadHTML()">⬇️ Download Clean HTML File</button>
+  <p style="margin-top:15px;font-size:0.9rem;color:#5f6368;">
+    File: <code>gsc-seo-bookmarklets.html</code> • Size: ~52KB • Works offline • Includes drag-to-install
+  </p>
+</div>
+
+<div class="section">
+  <h2>🛠️ Troubleshooting</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Issue</th>
+        <th>Solution</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Drag doesn't work / nothing happens</td>
+        <td>Ensure bookmarks bar is visible (<code>Ctrl+Shift+B</code>). Try right-click → "Copy Link Address" → Create bookmark manually</td>
+      </tr>
+      <tr>
+        <td>Firefox shows security warning</td>
+        <td>This is normal! Click "Allow" or "Add" to confirm the javascript: bookmark</td>
+      </tr>
+      <tr>
+        <td>Bookmarklet doesn't run on GSC</td>
+        <td>Ensure you're on a GSC <strong>Performance → Search results</strong> page (not homepage)</td>
+      </tr>
+      <tr>
+        <td>Filter not applying</td>
+        <td>Check browser console for errors; verify URL contains <code>search-console/performance</code></td>
+      </tr>
+      <tr>
+        <td>Regex not matching expected queries</td>
+        <td>Test pattern directly in GSC UI first: Performance → + New → Query → Custom (regex)</td>
+      </tr>
+      <tr>
+        <td>Mobile: Can't drag to install</td>
+        <td>Use "Copy Code" → Create new bookmark → Paste code as URL/Location</td>
+      </tr>
+      <tr>
+        <td>Branded filter not working</td>
+        <td>Remember to edit the pattern and replace <code>yourbrand</code> with your actual brand terms!</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  <p>🔍 GSC SEO Regex Bookmarklets • Created for SEO professionals</p>
+  <p style="margin-top:8px;">
+    <a href="https://github.com/google/re2/wiki/Syntax" target="_blank" style="color:var(--primary);text-decoration:none;">RE2 Syntax Docs</a> • 
+    <a href="https://support.google.com/webmasters/answer/9120373" target="_blank" style="color:var(--primary);text-decoration:none;">GSC Performance Guide</a> • 
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="color:var(--primary);text-decoration:none;">↑ Back to Top</a>
+  </p>
+  <p style="margin-top:15px;font-size:0.85rem;opacity:0.8;">
+    MIT License • Free for personal and commercial use • No data collected
+  </p>
+</footer>
+
+<div class="copy-feedback" id="copyFeedback">✅ Copied to clipboard!</div>
+
+<script>
+  // Toggle code block visibility
+  function toggleCode(elementId) {
+    const codeBlock = document.getElementById(elementId);
+    codeBlock.classList.toggle('show');
+  }
+
+  // Copy code to clipboard
+  function copyCode(elementId) {
+    const code = document.getElementById(elementId).textContent.trim();
+    navigator.clipboard.writeText(code).then(() => {
+      showFeedback('✅ JavaScript code copied to clipboard!');
+    }).catch(err => {
+      // Fallback for older browsers
+      const textarea = document.createElement('textarea');
+      textarea.value = code;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      showFeedback('✅ Code copied (fallback method)!');
+    });
+  }
+
+  // Show drag hint when user clicks instead of dragging
+  function showDragHint() {
+    showFeedback('💡 Tip: Hold and DRAG this button to your bookmarks bar! (Or use Copy Code for mobile)');
+  }
+
+  // Show temporary feedback message
+  function showFeedback(message, isError = false) {
+    const feedback = document.getElementById('copyFeedback');
+    feedback.textContent = message;
+    feedback.style.background = isError ? '#ea4335' : '#34a853';
+    feedback.classList.add('show');
+    
+    setTimeout(() => {
+      feedback.classList.remove('show');
+    }, 3500);
+  }
+
+  // Generate and download clean HTML file (offline version)
+  function downloadHTML() {
+    const cleanHTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSC SEO Bookmarklets - Offline</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:900px;margin:30px auto;padding:20px;line-height:1.6}
+.bookmarklet{background:#f8f9fa;border:1px solid #dadce0;border-radius:8px;padding:15px;margin:15px 0}
+.code{background:#1e1e1e;color:#d4d4d4;padding:12px;border-radius:6px;font-family:monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap}
+.badge{display:inline-block;background:#4285f4;color:white;padding:3px 10px;border-radius:12px;font-size:0.8rem;margin:5px 0}
+.note{background:#e8f0fe;border-left:4px solid #4285f4;padding:12px;margin:15px 0;border-radius:0 6px 6px 0}
+.warning{background:#fce8e6;border-left-color:#ea4335}
+h1{color:#202124;border-bottom:2px solid #dadce0;padding-bottom:15px}
+h2{color:#4285f4;margin:25px 0 15px}
+.drag-link{display:inline-block;background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:500;margin:5px 0}
+a{color:#1a0dab}
+</style>
+</head>
+<body>
+<h1>🔍 GSC SEO Regex Bookmarklets</h1>
+
+<div style="background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:20px;border-radius:10px;margin:20px 0">
+  <h2 style="color:white;margin:0 0 10px 0">🖱️ Drag-to-Install Instructions</h2>
+  <p style="margin:0 0 15px 0;opacity:0.95">1. Show Bookmarks Bar: <code>Ctrl+Shift+B</code> (Win) or <code>Cmd+Shift+B</code> (Mac)<br>
+  2. Drag any purple "Drag to Install" link below to your bookmarks bar<br>
+  3. Go to GSC Performance report and click your new bookmark!</p>
+  <p style="margin:0;font-size:0.9rem;opacity:0.9">💡 Firefox: Click "Allow" on security warning • Mobile: Use "Copy Code" method below</p>
+</div>
+
+<p><strong>Alternative Install (if drag fails):</strong><br>
+1. Click "Copy Code" below any bookmarklet<br>
+2. Create a new bookmark in your browser<br>
+3. Paste the code as the bookmark's URL/Location<br>
+4. Name it (e.g., "GSC: Commercial Intent")<br>
+5. Save to your Bookmarks Bar</p>
+
+<div class="note">✅ <strong>Tip:</strong> Go to Google Search Console → Performance report before clicking a bookmarklet.</div>
+
+<h2>🎯 Core Filters</h2>
+
+<div class="bookmarklet">
+<strong>1️⃣ Commercial Intent</strong> <span class="badge">High Value</span>
+<p>Finds: buy, price, deal, review, best, vs, comparison</p>
+<a class="drag-link" href="javascript:(function(){var r='\\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
+<div class="code">javascript:(function(){var r='\\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+</div>
+
+<div class="bookmarklet">
+<strong>2️⃣ Comparison & Alternatives</strong> <span class="badge">Research</span>
+<p>Finds: vs, versus, alternative, better, difference</p>
+<a class="drag-link" href="javascript:(function(){var r='\\b(vs|versus|alternative|or|better|difference|compared)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
+<div class="code">javascript:(function(){var r='\\b(vs|versus|alternative|or|better|difference|compared)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+</div>
+
+<div class="bookmarklet">
+<strong>3️⃣ Troubleshooting</strong> <span class="badge">Support</span>
+<p>Finds: problem, error, not working, fix, help</p>
+<a class="drag-link" href="javascript:(function(){var r='\\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
+<div class="code">javascript:(function(){var r='\\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+</div>
+
+<div class="bookmarklet">
+<strong>4️⃣ Questions</strong> <span class="badge">Informational</span>
+<p>Finds queries starting with: who, what, where, why, how, can, is</p>
+<a class="drag-link" href="javascript:(function(){var r='^(who|what|where|why|how|can|is)';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
+<div class="code">javascript:(function(){var r='^(who|what|where|why|how|can|is)';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+</div>
+
+<div class="bookmarklet">
+<strong>5️⃣ Long-Tail (5+ Words)</strong> <span class="badge">Low Competition</span>
+<p>Finds detailed queries with 5 or more words</p>
+<a class="drag-link" href="javascript:(function(){var r='^(\\S+\\s+){5,}\\S+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
+<div class="code">javascript:(function(){var r='^(\\S+\\s+){5,}\\S+$';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+</div>
+
+<h2>🚀 Advanced Patterns</h2>
+
+<div class="bookmarklet">
+<strong>6️⃣ Branded Queries</strong> <span class="badge">Brand</span>
+<p class="warning">⚠️ EDIT FIRST: Replace "yourbrand|your-brand" with your actual brand terms</p>
+<a class="drag-link" href="javascript:(function(){var r='\\b(yourbrand|your-brand|your_brand)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
+<div class="code">javascript:(function(){var r='\\b(yourbrand|your-brand|your_brand)\\b';var e=encodeURIComponent(r);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();})();</div>
+</div>
+
+<div class="bookmarklet">
+<strong>✨ Master Prompt</strong> <span class="badge">Advanced</span>
+<p>Prompts for any regex pattern on click</p>
+<a class="drag-link" href="javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var e=encodeURIComponent(p);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();}})();" draggable="true">🖱️ Drag to Install</a>
+<button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
+<div class="code">javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var e=encodeURIComponent(p);var u=new URL(window.location.href);u.searchParams.set('query','~'+e);window.location.href=u.toString();}})();</div>
+</div>
+
+<h2>📚 Quick Reference</h2>
+<p><strong>RE2 Regex Syntax (Google Search Console):</strong></p>
+<ul>
+<li><code>\\b</code> = word boundary | <code>^</code>/<code>$</code> = start/end of string</li>
+<li><code>|</code> = OR | <code>(?i)</code> = case-insensitive</li>
+<li><code>{n,}</code> = n or more repetitions | <code>!~</code> prefix = exclude pattern</li>
+<li>Test patterns first in GSC UI: Performance → + New → Query → Custom (regex)</li>
+</ul>
+
+<p style="margin-top:30px;padding-top:20px;border-top:1px solid #dadce0;font-size:0.9rem;color:#5f6368">
+MIT License • Free to use • <a href="https://github.com/google/re2/wiki/Syntax">RE2 Docs</a>
+</p>
+</body>
+</html>`;
+
+    const blob = new Blob([cleanHTML], {type: 'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'gsc-seo-bookmarklets.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    showFeedback('✅ Download started: gsc-seo-bookmarklets.html');
+  }
+
+  // Prevent default drag behavior on mobile
+  document.addEventListener('DOMContentLoaded', () => {
+    // Add touch support hint
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile) {
+      document.querySelectorAll('.drag-bookmark').forEach(link => {
+        link.title = '📱 Mobile: Long-press → Copy Link → Create bookmark manually';
+        link.style.cursor = 'pointer';
+      });
+      showFeedback('📱 Mobile detected: Use "Copy Code" buttons for best results', false);
+    }
+    
+    console.log('🔍 GSC Bookmarklets page loaded with drag-to-install');
+  });
+
+  // Enhance drag experience: visual feedback
+  document.querySelectorAll('.drag-bookmark').forEach(link => {
+    link.addEventListener('dragstart', (e) => {
+      e.dataTransfer.effectAllowed = 'copy';
+      showFeedback('🎯 Drop on your Bookmarks Bar to install!', false);
+    });
+    
+    link.addEventListener('dragend', () => {
+      // Reset after drag
+    });
+  });
+</script>
+
+</body>
+</html>
