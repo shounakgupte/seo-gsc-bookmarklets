@@ -6,8 +6,8 @@
   <title>🔍 GSC SEO Regex Bookmarklets</title>
   <style>
     :root {
-      --primary: #4285f4;
-      --primary-dark: #3367d6;
+      --primary: #e5536c;
+      --primary-dark: #000000;
       --success: #34a853;
       --warning: #fbbc05;
       --danger: #ea4335;
@@ -15,7 +15,7 @@
       --light: #f8f9fa;
       --border: #dadce0;
       --card-shadow: 0 1px 2px rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
-      --drag-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --drag-gradient: linear-gradient(135deg, #e5536c 0%, #000000 100%);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -467,12 +467,12 @@
       <div class="regex-preview">\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\b</div>
       
       <!-- 🎯 DRAGGABLE BOOKMARKLET LINK -->
-      <a class="drag-bookmark" 
+      <a title="GSC: 1️⃣ Commercial Intent" class="drag-bookmark"
          draggable="true"
          href="javascript:(function(){var r='\\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
-         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-        <span class="drag-icon">🖱️</span> Drag to Install
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 1️⃣ Commercial Intent'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 1️⃣ Commercial Intent');">
+        <span class="drag-icon">🖱️</span> GSC: 1️⃣ Commercial Intent
       </a>
       
       <div class="btn-group">
@@ -491,12 +491,12 @@
       <p class="card-desc">Catches "vs", "alternative", "better than" comparison queries.</p>
       <div class="regex-preview">\b(vs|versus|alternative|or|better|difference|compared)\b</div>
       
-      <a class="drag-bookmark" 
+      <a title="GSC: 2️⃣ Comparison & Alternatives" class="drag-bookmark"
          draggable="true"
          href="javascript:(function(){var r='\\b(vs|versus|alternative|or|better|difference|compared)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
-         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-        <span class="drag-icon">🖱️</span> Drag to Install
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 2️⃣ Comparison & Alternatives'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 2️⃣ Comparison & Alternatives');">
+        <span class="drag-icon">🖱️</span> GSC: 2️⃣ Comparison & Alternatives
       </a>
       
       <div class="btn-group">
@@ -515,12 +515,12 @@
       <p class="card-desc">Finds users with problems: error, not working, help, fix, etc.</p>
       <div class="regex-preview">\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\b</div>
       
-      <a class="drag-bookmark" 
+      <a title="GSC: 3️⃣ Troubleshooting & Pain Points" class="drag-bookmark"
          draggable="true"
          href="javascript:(function(){var r='\\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
-         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-        <span class="drag-icon">🖱️</span> Drag to Install
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 3️⃣ Troubleshooting & Pain Points'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 3️⃣ Troubleshooting & Pain Points');">
+        <span class="drag-icon">🖱️</span> GSC: 3️⃣ Troubleshooting & Pain Points
       </a>
       
       <div class="btn-group">
@@ -539,12 +539,12 @@
       <p class="card-desc">Matches queries starting with who, what, where, why, how, can, is.</p>
       <div class="regex-preview">^(who|what|where|why|how|can|is)</div>
       
-      <a class="drag-bookmark" 
+      <a title="GSC: 4️⃣ Question Queries" class="drag-bookmark"
          draggable="true"
          href="javascript:(function(){var r='^(who|what|where|why|how|can|is)';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
-         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-        <span class="drag-icon">🖱️</span> Drag to Install
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 4️⃣ Question Queries'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 4️⃣ Question Queries');">
+        <span class="drag-icon">🖱️</span> GSC: 4️⃣ Question Queries
       </a>
       
       <div class="btn-group">
@@ -563,12 +563,12 @@
       <p class="card-desc">Finds detailed, specific queries with 5 or more words.</p>
       <div class="regex-preview">^(\S+\s+){5,}\S+$</div>
       
-      <a class="drag-bookmark" 
+      <a title="GSC: 5️⃣ Long-Tail (5+ Words)" class="drag-bookmark"
          draggable="true"
          href="javascript:(function(){var r='^(\\S+\\s+){5,}\\S+$';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
-         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-        <span class="drag-icon">🖱️</span> Drag to Install
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 5️⃣ Long-Tail (5+ Words)'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 5️⃣ Long-Tail (5+ Words)');">
+        <span class="drag-icon">🖱️</span> GSC: 5️⃣ Long-Tail (5+ Words)
       </a>
       
       <div class="btn-group">
@@ -595,12 +595,12 @@
       <div class="regex-preview">\b(yourbrand|your-brand|your_brand)\b</div>
       <div class="note">⚠️ Replace <code>yourbrand|your-brand|your_brand</code> with your actual brand terms before installing.</div>
       
-      <a class="drag-bookmark" 
+      <a title="GSC: 6️⃣ Branded Queries" class="drag-bookmark"
          draggable="true"
          href="javascript:(function(){var r='\\b(yourbrand|your-brand|your_brand)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
-         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-        <span class="drag-icon">🖱️</span> Drag to Install
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 6️⃣ Branded Queries'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 6️⃣ Branded Queries');">
+        <span class="drag-icon">🖱️</span> GSC: 6️⃣ Branded Queries
       </a>
       
       <div class="btn-group">
@@ -620,12 +620,12 @@
       <div class="regex-preview">^(?!.*(yourbrand|your-brand)).+$</div>
       <div class="note">Uses <code>!~</code> (negative match). Edit brand terms first.</div>
       
-      <a class="drag-bookmark" 
+      <a title="GSC: 7️⃣ Non-Branded (Exclude Brand)" class="drag-bookmark"
          draggable="true"
          href="javascript:(function(){var r='^(?!.*(yourbrand|your-brand)).+$';var u=new URL(window.location.href);u.searchParams.set('query','!~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
-         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-        <span class="drag-icon">🖱️</span> Drag to Install
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 7️⃣ Non-Branded (Exclude Brand)'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 7️⃣ Non-Branded (Exclude Brand)');">
+        <span class="drag-icon">🖱️</span> GSC: 7️⃣ Non-Branded (Exclude Brand)
       </a>
       
       <div class="btn-group">
@@ -644,12 +644,12 @@
       <p class="card-desc">Finds "near me", city names, and location-based queries.</p>
       <div class="regex-preview">\b(near me|nearby|in [a-z]+|local|[a-z]+\s+(australia|uk|usa|canada))\b</div>
       
-      <a class="drag-bookmark" 
+      <a title="GSC: 8️⃣ Local Intent" class="drag-bookmark"
          draggable="true"
          href="javascript:(function(){var r='\\b(near me|nearby|in [a-z]+|local|[a-z]+\\s+(australia|uk|usa|canada))\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
-         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-        <span class="drag-icon">🖱️</span> Drag to Install
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 8️⃣ Local Intent'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 8️⃣ Local Intent');">
+        <span class="drag-icon">🖱️</span> GSC: 8️⃣ Local Intent
       </a>
       
       <div class="btn-group">
@@ -668,12 +668,12 @@
       <p class="card-desc">High-intent actions: buy now, order, sign up, free trial, etc.</p>
       <div class="regex-preview">\b(buy now|order|purchase|checkout|add to cart|sign up|subscribe|get started|free trial)\b</div>
       
-      <a class="drag-bookmark" 
+      <a title="GSC: 9️⃣ Transactional Intent" class="drag-bookmark"
          draggable="true"
          href="javascript:(function(){var r='\\b(buy now|order|purchase|checkout|add to cart|sign up|subscribe|get started|free trial)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
-         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-        <span class="drag-icon">🖱️</span> Drag to Install
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 9️⃣ Transactional Intent'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 9️⃣ Transactional Intent');">
+        <span class="drag-icon">🖱️</span> GSC: 9️⃣ Transactional Intent
       </a>
       
       <div class="btn-group">
@@ -692,12 +692,12 @@
       <p class="card-desc">Educational queries: guide, tutorial, how to, tips, examples.</p>
       <div class="regex-preview">\b(guide|tutorial|how to|what is|learn|tips|steps|example|ideas|list|vs|vs\.)\b</div>
       
-      <a class="drag-bookmark" 
+      <a title="GSC: 🔟 Informational Intent" class="drag-bookmark"
          draggable="true"
          href="javascript:(function(){var r='\\b(guide|tutorial|how to|what is|learn|tips|steps|example|ideas|list|vs|vs\\.)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
-         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-        <span class="drag-icon">🖱️</span> Drag to Install
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 🔟 Informational Intent'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 🔟 Informational Intent');">
+        <span class="drag-icon">🖱️</span> GSC: 🔟 Informational Intent
       </a>
       
       <div class="btn-group">
@@ -716,12 +716,12 @@
       <p class="card-desc">Finds broad, high-volume head terms.</p>
       <div class="regex-preview">^\S+(\s+\S+){0,1}$</div>
       
-      <a class="drag-bookmark" 
+      <a title="GSC: 1️⃣1️⃣ Short Queries (1-2 Words)" class="drag-bookmark"
          draggable="true"
          href="javascript:(function(){var r='^\\S+(\\s+\\S+){0,1}$';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
-         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-        <span class="drag-icon">🖱️</span> Drag to Install
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 1️⃣1️⃣ Short Queries (1-2 Words)'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 1️⃣1️⃣ Short Queries (1-2 Words)');">
+        <span class="drag-icon">🖱️</span> GSC: 1️⃣1️⃣ Short Queries (1-2 Words)
       </a>
       
       <div class="btn-group">
@@ -740,12 +740,12 @@
       <p class="card-desc">Finds extremely specific, low-competition queries.</p>
       <div class="regex-preview">^(\S+\s+){10,}\S+$</div>
       
-      <a class="drag-bookmark" 
+      <a title="GSC: 1️⃣2️⃣ Very Long Queries (10+ Words)" class="drag-bookmark"
          draggable="true"
          href="javascript:(function(){var r='^(\\S+\\s+){10,}\\S+$';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
-         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-        <span class="drag-icon">🖱️</span> Drag to Install
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 1️⃣2️⃣ Very Long Queries (10+ Words)'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 1️⃣2️⃣ Very Long Queries (10+ Words)');">
+        <span class="drag-icon">🖱️</span> GSC: 1️⃣2️⃣ Very Long Queries (10+ Words)
       </a>
       
       <div class="btn-group">
@@ -764,12 +764,12 @@
       <p class="card-desc">Matches more question starters with case-insensitive flag.</p>
       <div class="regex-preview">(?i)^(who|what|where|when|why|how|can|could|should|would|is|are|does|do|did|will)\b</div>
       
-      <a class="drag-bookmark" 
+      <a title="GSC: 1️⃣3️⃣ Expanded Questions (Case-Insensitive)" class="drag-bookmark"
          draggable="true"
          href="javascript:(function(){var r='(?i)^(who|what|where|when|why|how|can|could|should|would|is|are|does|do|did|will)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
-         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-        <span class="drag-icon">🖱️</span> Drag to Install
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 1️⃣3️⃣ Expanded Questions (Case-Insensitive)'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 1️⃣3️⃣ Expanded Questions (Case-Insensitive)');">
+        <span class="drag-icon">🖱️</span> GSC: 1️⃣3️⃣ Expanded Questions (Case-Insensitive)
       </a>
       
       <div class="btn-group">
@@ -789,12 +789,12 @@
       <div class="regex-preview">\b(vs|versus|vs\.|compared to|alternative to|instead of)\s+(competitor1|competitor2)\b</div>
       <div class="note warning">⚠️ Replace <code>competitor1|competitor2</code> with actual competitor brand names.</div>
       
-      <a class="drag-bookmark" 
+      <a title="GSC: 1️⃣4️⃣ Competitor Comparisons" class="drag-bookmark"
          draggable="true"
          href="javascript:(function(){var r='\\b(vs|versus|vs\\.|compared to|alternative to|instead of)\\s+(competitor1|competitor2)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
-         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-        <span class="drag-icon">🖱️</span> Drag to Install
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 1️⃣4️⃣ Competitor Comparisons'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 1️⃣4️⃣ Competitor Comparisons');">
+        <span class="drag-icon">🖱️</span> GSC: 1️⃣4️⃣ Competitor Comparisons
       </a>
       
       <div class="btn-group">
@@ -813,12 +813,12 @@
       <p class="card-desc">Finds budget-conscious searches: cheap, affordable, discount, coupon.</p>
       <div class="regex-preview">\b(cheap|affordable|budget|low cost|discount|deal|coupon|promo|free|pricing|cost of)\b</div>
       
-      <a class="drag-bookmark" 
+      <a title="GSC: 1️⃣5️⃣ Price-Sensitive Queries" class="drag-bookmark"
          draggable="true"
          href="javascript:(function(){var r='\\b(cheap|affordable|budget|low cost|discount|deal|coupon|promo|free|pricing|cost of)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();"
          onclick="event.preventDefault(); showDragHint(); return false;"
-         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-        <span class="drag-icon">🖱️</span> Drag to Install
+         ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 1️⃣5️⃣ Price-Sensitive Queries'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 1️⃣5️⃣ Price-Sensitive Queries');">
+        <span class="drag-icon">🖱️</span> GSC: 1️⃣5️⃣ Price-Sensitive Queries
       </a>
       
       <div class="btn-group">
@@ -841,12 +841,12 @@
     <p class="card-desc">One bookmarklet that prompts you for any regex pattern. Perfect for testing new filters on the fly.</p>
     <div class="regex-preview">Prompts for pattern → Applies to GSC query filter</div>
     
-    <a class="drag-bookmark" 
+    <a title="GSC: ✨ Master Prompt Bookmarklet" class="drag-bookmark"
        draggable="true"
        href="javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var u=new URL(window.location.href);u.searchParams.set('query','~'+p);window.location.href=u.toString();}})();"
        onclick="event.preventDefault(); showDragHint(); return false;"
-       ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', this.textContent);">
-      <span class="drag-icon">🖱️</span> Drag to Install
+       ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: ✨ Master Prompt Bookmarklet'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: ✨ Master Prompt Bookmarklet');">
+      <span class="drag-icon">🖱️</span> GSC: ✨ Master Prompt Bookmarklet
     </a>
     
     <div class="btn-group">
@@ -977,6 +977,9 @@
     <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="color:var(--primary);text-decoration:none;">↑ Back to Top</a>
   </p>
   <p style="margin-top:15px;font-size:0.85rem;opacity:0.8;">
+    Created by <strong>Shounak Gupte</strong> • <a href="mailto:hello@shounakgupte.com" style="color:inherit;">hello@shounakgupte.com</a>
+  </p>
+  <p style="margin-top:15px;font-size:0.85rem;opacity:0.8;">
     MIT License • Free for personal and commercial use • No data collected
   </p>
 </footer>
@@ -1036,19 +1039,19 @@
 body{font-family:Arial,sans-serif;max-width:900px;margin:30px auto;padding:20px;line-height:1.6}
 .bookmarklet{background:#f8f9fa;border:1px solid #dadce0;border-radius:8px;padding:15px;margin:15px 0}
 .code{background:#1e1e1e;color:#d4d4d4;padding:12px;border-radius:6px;font-family:monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap}
-.badge{display:inline-block;background:#4285f4;color:white;padding:3px 10px;border-radius:12px;font-size:0.8rem;margin:5px 0}
-.note{background:#e8f0fe;border-left:4px solid #4285f4;padding:12px;margin:15px 0;border-radius:0 6px 6px 0}
+.badge{display:inline-block;background:#e5536c;color:white;padding:3px 10px;border-radius:12px;font-size:0.8rem;margin:5px 0}
+.note{background:#fef7e0;border-left:4px solid #fbbc05;padding:12px;margin:15px 0;border-radius:0 6px 6px 0}
 .warning{background:#fce8e6;border-left-color:#ea4335}
 h1{color:#202124;border-bottom:2px solid #dadce0;padding-bottom:15px}
-h2{color:#4285f4;margin:25px 0 15px}
-.drag-link{display:inline-block;background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:500;margin:5px 0}
+h2{color:#e5536c;margin:25px 0 15px}
+.drag-link{display:inline-block;background:linear-gradient(135deg,#e5536c,#000000);color:white;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:500;margin:5px 0}
 a{color:#1a0dab}
 </style>
 </head>
 <body>
 <h1>🔍 GSC SEO Regex Bookmarklets</h1>
 
-<div style="background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:20px;border-radius:10px;margin:20px 0">
+<div style="background:linear-gradient(135deg,#e5536c,#000000);color:white;padding:20px;border-radius:10px;margin:20px 0">
   <h2 style="color:white;margin:0 0 10px 0">🖱️ Drag-to-Install Instructions</h2>
   <p style="margin:0 0 15px 0;opacity:0.95">1. Show Bookmarks Bar: <code>Ctrl+Shift+B</code> (Win) or <code>Cmd+Shift+B</code> (Mac)<br>
   2. Drag any purple "Drag to Install" link below to your bookmarks bar<br>
@@ -1070,7 +1073,7 @@ a{color:#1a0dab}
 <div class="bookmarklet">
 <strong>1️⃣ Commercial Intent</strong> <span class="badge">High Value</span>
 <p>Finds: buy, price, deal, review, best, vs, comparison</p>
-<a class="drag-link" href="javascript:(function(){var r='\\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<a class="drag-link" title="GSC: 1️⃣ Commercial Intent" href="javascript:(function(){var r='\\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true" ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 1️⃣ Commercial Intent'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 1️⃣ Commercial Intent');">🖱️ GSC: 1️⃣ Commercial Intent</a>
 <button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
 <div class="code">javascript:(function(){var r='\\b(buy|price|cost|cheap|deal|discount|sale|best|top|review|vs|comparison)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
 </div>
@@ -1078,7 +1081,7 @@ a{color:#1a0dab}
 <div class="bookmarklet">
 <strong>2️⃣ Comparison & Alternatives</strong> <span class="badge">Research</span>
 <p>Finds: vs, versus, alternative, better, difference</p>
-<a class="drag-link" href="javascript:(function(){var r='\\b(vs|versus|alternative|or|better|difference|compared)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<a class="drag-link" title="GSC: 2️⃣ Comparison & Alternatives" href="javascript:(function(){var r='\\b(vs|versus|alternative|or|better|difference|compared)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true" ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 2️⃣ Comparison & Alternatives'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 2️⃣ Comparison & Alternatives');">🖱️ GSC: 2️⃣ Comparison & Alternatives</a>
 <button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
 <div class="code">javascript:(function(){var r='\\b(vs|versus|alternative|or|better|difference|compared)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
 </div>
@@ -1086,7 +1089,7 @@ a{color:#1a0dab}
 <div class="bookmarklet">
 <strong>3️⃣ Troubleshooting</strong> <span class="badge">Support</span>
 <p>Finds: problem, error, not working, fix, help</p>
-<a class="drag-link" href="javascript:(function(){var r='\\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<a class="drag-link" title="GSC: 3️⃣ Troubleshooting" href="javascript:(function(){var r='\\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true" ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 3️⃣ Troubleshooting'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 3️⃣ Troubleshooting');">🖱️ GSC: 3️⃣ Troubleshooting</a>
 <button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
 <div class="code">javascript:(function(){var r='\\b(how to fix|problem|issue|error|not working|failed|broken|slow|help|support)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
 </div>
@@ -1094,7 +1097,7 @@ a{color:#1a0dab}
 <div class="bookmarklet">
 <strong>4️⃣ Questions</strong> <span class="badge">Informational</span>
 <p>Finds queries starting with: who, what, where, why, how, can, is</p>
-<a class="drag-link" href="javascript:(function(){var r='^(who|what|where|why|how|can|is)';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<a class="drag-link" title="GSC: 4️⃣ Questions" href="javascript:(function(){var r='^(who|what|where|why|how|can|is)';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true" ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 4️⃣ Questions'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 4️⃣ Questions');">🖱️ GSC: 4️⃣ Questions</a>
 <button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
 <div class="code">javascript:(function(){var r='^(who|what|where|why|how|can|is)';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
 </div>
@@ -1102,7 +1105,7 @@ a{color:#1a0dab}
 <div class="bookmarklet">
 <strong>5️⃣ Long-Tail (5+ Words)</strong> <span class="badge">Low Competition</span>
 <p>Finds detailed queries with 5 or more words</p>
-<a class="drag-link" href="javascript:(function(){var r='^(\\S+\\s+){5,}\\S+$';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<a class="drag-link" title="GSC: 5️⃣ Long-Tail (5+ Words)" href="javascript:(function(){var r='^(\\S+\\s+){5,}\\S+$';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true" ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 5️⃣ Long-Tail (5+ Words)'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 5️⃣ Long-Tail (5+ Words)');">🖱️ GSC: 5️⃣ Long-Tail (5+ Words)</a>
 <button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
 <div class="code">javascript:(function(){var r='^(\\S+\\s+){5,}\\S+$';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
 </div>
@@ -1112,7 +1115,7 @@ a{color:#1a0dab}
 <div class="bookmarklet">
 <strong>6️⃣ Branded Queries</strong> <span class="badge">Brand</span>
 <p class="warning">⚠️ EDIT FIRST: Replace "yourbrand|your-brand" with your actual brand terms</p>
-<a class="drag-link" href="javascript:(function(){var r='\\b(yourbrand|your-brand|your_brand)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true">🖱️ Drag to Install</a>
+<a class="drag-link" title="GSC: 6️⃣ Branded Queries" href="javascript:(function(){var r='\\b(yourbrand|your-brand|your_brand)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();" draggable="true" ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: 6️⃣ Branded Queries'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: 6️⃣ Branded Queries');">🖱️ GSC: 6️⃣ Branded Queries</a>
 <button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
 <div class="code">javascript:(function(){var r='\\b(yourbrand|your-brand|your_brand)\\b';var u=new URL(window.location.href);u.searchParams.set('query','~'+r);window.location.href=u.toString();})();</div>
 </div>
@@ -1120,7 +1123,7 @@ a{color:#1a0dab}
 <div class="bookmarklet">
 <strong>✨ Master Prompt</strong> <span class="badge">Advanced</span>
 <p>Prompts for any regex pattern on click</p>
-<a class="drag-link" href="javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var u=new URL(window.location.href);u.searchParams.set('query','~'+p);window.location.href=u.toString();}})();" draggable="true">🖱️ Drag to Install</a>
+<a class="drag-link" title="GSC: ✨ Master Prompt" href="javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var u=new URL(window.location.href);u.searchParams.set('query','~'+p);window.location.href=u.toString();}})();" draggable="true" ondragstart="event.dataTransfer.setData('text/uri-list', this.href); event.dataTransfer.setData('text/plain', 'GSC: ✨ Master Prompt'); event.dataTransfer.setData('text/x-moz-url', this.href + '\n' + 'GSC: ✨ Master Prompt');">🖱️ GSC: ✨ Master Prompt</a>
 <button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>alert('✅ Copied!'))">📋 Copy Code</button>
 <div class="code">javascript:(function(){var p=prompt('Enter regex pattern for GSC query filter:','\\b(buy|price)\\b');if(p){var u=new URL(window.location.href);u.searchParams.set('query','~'+p);window.location.href=u.toString();}})();</div>
 </div>
@@ -1135,6 +1138,9 @@ a{color:#1a0dab}
 </ul>
 
 <p style="margin-top:30px;padding-top:20px;border-top:1px solid #dadce0;font-size:0.9rem;color:#5f6368">
+Created by <strong>Shounak Gupte</strong> • <a href="mailto:hello@shounakgupte.com" style="color:inherit;">hello@shounakgupte.com</a>
+</p>
+<p style="margin-top:10px;font-size:0.9rem;color:#5f6368">
 MIT License • Free to use • <a href="https://github.com/google/re2/wiki/Syntax">RE2 Docs</a>
 </p>
 </body>
