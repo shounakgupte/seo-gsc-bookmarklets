@@ -1,4 +1,4 @@
-# 🔍 SEO Google Search Console Bookmarklets
+# 🔍 SEO Google Search Console Bookmarklets and Regex
 
 Elevate your organic search analysis with these **SEO Google Search Console Bookmarklets**. Instantly filter your GSC Performance reports by search intent, word count, and advanced regex patterns with a single click—no more manual copying and pasting of complex regex.
 
